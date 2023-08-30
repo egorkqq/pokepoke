@@ -1,12 +1,17 @@
+import { Filters } from "../../components/filters";
 import { List } from "../../components/list";
-import { Pagination } from "../../components/pagination";
+
+import { FiltersWrapper, Layout, ListWrapper } from "./styled";
 
 export const HomePage = () => {
   return (
-    <div>
-      Test task
-      <List />
-      <Pagination />
-    </div>
+    <Layout>
+      <FiltersWrapper>
+        <Filters />
+      </FiltersWrapper>
+      <ListWrapper>
+        <List />
+      </ListWrapper>
+    </Layout>
   );
 };
