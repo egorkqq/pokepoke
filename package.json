@@ -5,11 +5,13 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@highlight-run/react": "^3.2.1",
     "@types/humps": "^2.0.3",
     "@types/node": "^20.4.7",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "axios": "^1.4.0",
+    "highlight.run": "^7.5.0",
     "humps": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,7 +26,6 @@
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,css}'",
     "format:write": "prettier --write '**/*.{js,jsx,ts,tsx,css}'"
-
   },
   "browserslist": {
     "production": [
@@ -49,6 +50,5 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "prettier": "^2.3.0"
-
   }
 }
