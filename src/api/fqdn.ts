@@ -1,1 +1,1 @@
-export const POKEAPI_FQDN = "https://pokeapi.co";
+export const POKEAPI_FQDN = 'https://pokeapi.co'

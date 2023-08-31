@@ -1,0 +1,24 @@
+{
+  "trailingComma": "all",
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 120,
+
+  "importOrder": [
+    "^react(.*)$",
+
+    "<THIRD_PARTY_MODULES>",
+
+    "^\\bconfig\\b(.*)$",
+    "^\\bapi\\b(.*)$",
+    "^\\butils\\b(.*)$",
+
+    "^\\bpages\\b(.*)$",
+    "^\\bcomponents\\b(.*)$",
+
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderGroupNamespaceSpecifiers": true
+}

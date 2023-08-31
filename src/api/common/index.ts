@@ -1,1 +1,1 @@
-export type { NamedAPIResource, NamedAPIResourceList } from "./types";
+export type { NamedAPIResource, NamedAPIResourceList } from './types'

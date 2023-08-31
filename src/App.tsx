@@ -1,9 +1,8 @@
-import React from "react";
+import { Global } from '@emotion/react'
 
-import { HomePage } from "./pages";
-import { Global } from "@emotion/react";
-import { globalStyles } from "./utils/theme";
-import { HeaderComponent as Header } from "./components/header";
+import { HeaderComponent as Header } from './components/header'
+import { HomePage } from './pages'
+import { globalStyles } from './utils/theme'
 
 const App = () => (
   <>
@@ -11,6 +10,6 @@ const App = () => (
     <HomePage />
     <Global styles={globalStyles} />
   </>
-);
+)
 
-export default App;
+export default App

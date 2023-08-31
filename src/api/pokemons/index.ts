@@ -1,2 +1,2 @@
-export { getPokemons } from "./get-pokemons-list";
-export { getPokemon } from "./get-pokemon";
+export { getPokemons } from './get-pokemons-list'
+export { getPokemon } from './get-pokemon'

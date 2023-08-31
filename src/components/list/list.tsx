@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react";
-import { Pagination } from "../pagination";
-import { PokeCard, Skeleton } from "../poke-card";
-import { CardsWrapper, ErrorWrapper, Wrapper } from "./styled";
-import { ITEMS_PER_PAGE } from "../../config/constants";
-import { usePokemonsList, getIdFromUrl } from "../../utils";
-import { useSelectedPoke } from "../../utils";
+import { useState } from 'react'
 
-const cardsMock = Array.from({ length: 20 }, (_, i) => i);
+import { ITEMS_PER_PAGE } from 'config/constants'
+
+import { getIdFromUrl, usePokemonsList, useSelectedPoke } from 'utils'
+
+import { Pagination } from '../pagination'
+import { PokeCard, Skeleton } from '../poke-card'
+import { CardsWrapper, ErrorWrapper, Wrapper } from './styled'
+
+const cardsMock = Array.from({ length: 20 }, (_, i) => i)
 
 export const List = () => {
-  const [pageIndex, setPageIndex] = useState(0);
-  const { poke, setPoke } = useSelectedPoke();
+  const [pageIndex, setPageIndex] = useState(0)
+  const { setPoke } = useSelectedPoke()
 
-  const { data, error, isLoading } = usePokemonsList({ pageIndex });
+  const { data, error, isLoading } = usePokemonsList({ pageIndex })
 
   if (error || (!isLoading && !data)) {
-    return <ErrorWrapper>Error when load data :(((</ErrorWrapper>;
+    return <ErrorWrapper>Error when load data :(((</ErrorWrapper>
   }
 
   return (
@@ -36,5 +38,5 @@ export const List = () => {
         />
       )}
     </Wrapper>
-  );
-};
+  )
+}

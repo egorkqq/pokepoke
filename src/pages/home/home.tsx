@@ -1,21 +1,19 @@
-import { Detail } from "../../components/detail";
-import { Filters } from "../../components/filters";
-import { List } from "../../components/list";
+import { Detail } from 'components/detail'
+import { Filters } from 'components/filters'
+import { List } from 'components/list'
 
-import { FiltersWrapper, Layout, ListWrapper, DetailWrapper } from "./styled";
+import { DetailWrapper, FiltersWrapper, Layout, ListWrapper } from './styled'
 
-export const HomePage = () => {
-  return (
-    <Layout>
-      <FiltersWrapper>
-        <Filters />
-      </FiltersWrapper>
-      <ListWrapper>
-        <List />
-      </ListWrapper>
-      <DetailWrapper>
-        <Detail />
-      </DetailWrapper>
-    </Layout>
-  );
-};
+export const HomePage = () => (
+  <Layout>
+    <FiltersWrapper>
+      <Filters />
+    </FiltersWrapper>
+    <ListWrapper>
+      <List />
+    </ListWrapper>
+    <DetailWrapper>
+      <Detail />
+    </DetailWrapper>
+  </Layout>
+)
