@@ -12,7 +12,7 @@ export const usePokemonsList = ({ pageIndex }: UsePokemonsListParams) => {
   });
 
   return {
-    data: data,
+    data,
     isLoading,
     error,
   };

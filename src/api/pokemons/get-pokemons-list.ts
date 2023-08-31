@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "api/axios";
 import { POKEAPI_FQDN } from "../fqdn";
 import { NamedAPIResourceList } from "../common";
 

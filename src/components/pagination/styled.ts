@@ -8,6 +8,7 @@ export const Wrapper = styled.div({
   gap: "1rem",
   flexWrap: "wrap",
   userSelect: "none",
+  marginTop: "auto",
 });
 
 export const PagiButton = styled.button<{ isActive?: boolean }>(

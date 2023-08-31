@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Name, Picture, Wrapper } from "./styled";
+import { useSelectedPoke } from "../../utils";
 
 interface PokeCardProps {
   name: string;
   id: number;
+  onClick: (id: number | null) => void;
 }
 
-export const PokeCard: React.FC<PokeCardProps> = ({ name, id }) => {
+export const PokeCard: React.FC<PokeCardProps> = memo(({ name, id, onClick }) => {
   const [imageError, setImageError] = useState(false);
+  const { poke } = useSelectedPoke();
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter") {
+      onClick(id);
+    }
+  };
+
   return (
-    <Wrapper>
+    <Wrapper selected={id === poke} onClick={() => onClick(id)} onKeyDown={handleKeyDown} tabIndex={0}>
       <Picture
         onError={() => setImageError(true)}
         src={
@@ -21,4 +31,4 @@ export const PokeCard: React.FC<PokeCardProps> = ({ name, id }) => {
       <Name>{name}</Name>
     </Wrapper>
   );
-};
+});

@@ -2,21 +2,29 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import { colors } from "../../utils/theme";
 
-export const Wrapper = styled.div({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-
-  borderRadius: "2rem",
-  width: "100%",
-  background: colors.bg,
-  border: `1px solid ${colors.secondary}`,
-  overflow: "hidden",
-});
+export const Wrapper = styled.div<{ selected: boolean }>(
+  {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    borderRadius: "2rem",
+    width: "100%",
+    background: colors.bg,
+    overflow: "hidden",
+    cursor: "pointer",
+    transition: "all 0.2s ease-in-out",
+    ":hover": {
+      transform: "scale(1.05)",
+    },
+  },
+  ({ selected }) => ({
+    border: selected ? `2px solid ${colors.primary}` : `2px solid ${colors.secondary}`,
+  })
+);
 
 export const Picture = styled.img({
-  width: "9rem",
-  height: "9rem",
+  width: "8rem",
+  height: "8rem",
   objectFit: "cover",
 });
 

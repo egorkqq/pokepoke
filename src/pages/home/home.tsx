@@ -1,7 +1,8 @@
+import { Detail } from "../../components/detail";
 import { Filters } from "../../components/filters";
 import { List } from "../../components/list";
 
-import { FiltersWrapper, Layout, ListWrapper } from "./styled";
+import { FiltersWrapper, Layout, ListWrapper, DetailWrapper } from "./styled";
 
 export const HomePage = () => {
   return (
@@ -12,6 +13,9 @@ export const HomePage = () => {
       <ListWrapper>
         <List />
       </ListWrapper>
+      <DetailWrapper>
+        <Detail />
+      </DetailWrapper>
     </Layout>
   );
 };

@@ -18,3 +18,9 @@ export const ListWrapper = styled.section({
   flexGrow: 1,
   width: "calc(100% - 20rem)",
 });
+
+export const DetailWrapper = styled.aside({
+  display: "flex",
+  width: "18rem",
+  flexShrink: 0,
+});

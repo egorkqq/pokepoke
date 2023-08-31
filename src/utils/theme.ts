@@ -17,7 +17,7 @@ export const globalStyles = css`
   }
 
   body {
-    width: 62rem;
+    width: 80rem;
     margin: 2rem auto;
   }
 
