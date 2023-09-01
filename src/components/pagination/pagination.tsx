@@ -30,6 +30,7 @@ export const Pagination: React.FC<PaginationProps> = memo(({ currentPage, totalP
   }, [currentPage, totalPages])
   const handlePageClick = (page: number) => {
     if (page !== currentPage) {
+      window.scrollTo({ top: 0 })
       onPageChange(page)
     }
   }
