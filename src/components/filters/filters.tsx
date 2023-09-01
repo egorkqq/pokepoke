@@ -1,4 +1,5 @@
 import { AbilitiesList } from './abilities-list'
+import { HabitatsList } from './habitats-list'
 import { FiltersWrapper } from './styled'
 
 export const Filters = () => (
@@ -7,5 +8,6 @@ export const Filters = () => (
     <AbilitiesList />
 
     <div>Habitats:</div>
+    <HabitatsList />
   </FiltersWrapper>
 )

@@ -11,6 +11,9 @@ export const FiltersWrapper = styled.div({
   width: '100%',
   background: colors.bg,
   border: `1px solid ${colors.secondary}`,
+  alignSelf: 'baseline',
+  position: 'sticky',
+  top: '1rem',
 })
 
 export const FilterItemsGroup = styled.div({

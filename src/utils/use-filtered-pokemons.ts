@@ -3,22 +3,26 @@ import useSWR from 'swr'
 
 import { getAbility } from 'api/abilities'
 import { NamedAPIResource } from 'api/common'
+import { getHabitat } from 'api/habitats'
 
 import { useSelectedAbilities } from './use-selected-abilities'
+import { useSelectedHabitats } from './use-selected-habitats'
 
 export const useFilteredPokemons = () => {
   const { abilities } = useSelectedAbilities()
+  const { habitats } = useSelectedHabitats()
 
   const { data, isLoading } = useSWR(
-    ['filterd-pokemons', ...abilities],
+    ['filterd-pokemons', ...abilities, ...habitats],
     async () => {
-      if (!abilities.length) return undefined
+      if (!abilities.length && !habitats.length) return undefined
 
-      const fetchers = abilities.map((ability) => getAbility({ name: ability }))
+      const abilityFetchers = Promise.all(abilities.map((ability) => getAbility({ name: ability })))
+      const habitatFetchers = Promise.all(habitats.map((habitat) => getHabitat({ name: habitat })))
 
-      const responses = await Promise.all(fetchers)
+      const [abilityResponses, habitatResponses] = await Promise.all([abilityFetchers, habitatFetchers])
 
-      const filterResults = responses.reduce<NamedAPIResource[]>((acc, response) => {
+      const abilityMatchedPokemons = abilityResponses.reduce<NamedAPIResource[]>((acc, response) => {
         const { pokemon } = response
 
         const pokemons = pokemon.map(({ pokemon: innerPokemon }) => innerPokemon)
@@ -26,9 +30,20 @@ export const useFilteredPokemons = () => {
         return [...acc, ...pokemons]
       }, [])
 
-      const onlyUniquePokemons = uniqBy(filterResults, 'name')
+      const habitatMatchedPokemons = habitatResponses.map(({ pokemonSpecies }) => pokemonSpecies).flat()
 
-      return onlyUniquePokemons
+      const onlyUniqueHabitatMatchedPokemons = uniqBy(habitatMatchedPokemons, 'name')
+      const onlyUniqueAbilityMatchedPokemons = uniqBy(abilityMatchedPokemons, 'name')
+
+      let intersection
+      if (abilities.length && habitats.length)
+        intersection = onlyUniqueAbilityMatchedPokemons.filter((x) =>
+          onlyUniqueHabitatMatchedPokemons.some((pokemon) => pokemon.name === x.name),
+        )
+      if (!abilities.length && habitats.length) intersection = onlyUniqueHabitatMatchedPokemons
+      if (abilities.length && !habitats.length) intersection = onlyUniqueAbilityMatchedPokemons
+
+      return intersection
     },
     { keepPreviousData: !!abilities.length },
   )
