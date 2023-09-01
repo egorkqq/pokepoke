@@ -61,12 +61,18 @@ export const Detail = () => {
         <StatsContainer>
           {data?.stats.map((stat) => (
             <StatWrapper>
-              <StatValue>{stat.baseStat}</StatValue>
-              <StatName>{formatStatName(stat.stat.name || 'N/A')}</StatName>
+              <StatValue>{stat.baseStat || 'N/A'}</StatValue>
+              <StatName>{formatStatName(stat.stat.name)}</StatName>
             </StatWrapper>
           ))}
         </StatsContainer>
       </div>
+
+      {data?.abilities.map((ability) => (
+        <StatWrapper>
+          <StatValue>{ability.ability.name}</StatValue>
+        </StatWrapper>
+      ))}
     </DetailWrapper>
   )
 }

@@ -1,6 +1,7 @@
-import { getIdFromUrl } from './get-id-from-url'
-import { usePokemon } from './use-pokemon'
-import { usePokemonsList } from './use-pokemons-list'
-import { useSelectedPoke } from './use-selected-poke'
-
-export { getIdFromUrl, usePokemon, usePokemonsList, useSelectedPoke }
+export { getIdFromUrl } from './get-id-from-url'
+export { useAllAbilities } from './use-all-abilities'
+export { usePokemon } from './use-pokemon'
+export { usePokemonsList } from './use-pokemons-list'
+export { useSelectedPoke } from './use-selected-poke'
+export { useSelectedAbilities } from './use-selected-abilities'
+export { useFilteredPokemons } from './use-filtered-pokemons'

@@ -1,9 +1,7 @@
 import axios from 'api/axios'
-import { POKEAPI_FQDN } from 'api/fqdn'
+import { POKEAPI_POKEMONS_ENDPOINT } from 'api/common'
 
 import { Pokemon } from './types'
-
-const POKEAPI_POKEMONS_ENDPOINT = `${POKEAPI_FQDN}/api/v2`
 
 export interface GetPokemonParams {
   id: number

@@ -1,8 +1,5 @@
 import axios from 'api/axios'
-import { NamedAPIResourceList } from 'api/common'
-import { POKEAPI_FQDN } from 'api/fqdn'
-
-const POKEAPI_POKEMONS_ENDPOINT = `${POKEAPI_FQDN}/api/v2`
+import { NamedAPIResourceList, POKEAPI_POKEMONS_ENDPOINT } from 'api/common'
 
 export interface GetPokemonsParams {
   limit: number
