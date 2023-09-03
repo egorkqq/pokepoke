@@ -1,13 +1,14 @@
 import { AbilitiesList } from './abilities-list'
 import { HabitatsList } from './habitats-list'
-import { FiltersWrapper } from './styled'
+import { FiltersWrapper, Separator, Title } from './styled'
 
 export const Filters = () => (
   <FiltersWrapper>
-    <div>Filters</div>
+    <Title>Filter</Title>
     <AbilitiesList />
 
-    <div>Habitats:</div>
+    <Separator />
+
     <HabitatsList />
   </FiltersWrapper>
 )

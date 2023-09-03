@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react'
 
 import { ITEMS_PER_PAGE } from 'config/constants'
 
-import { getIdFromUrl, useFilteredPokemons, usePokemonsList, useSelectedAbilities, useSelectedPoke } from 'utils'
+import {
+  getIdFromUrl,
+  useFilteredPokemons,
+  usePokemonsList,
+  useSelectedAbilities,
+  useSelectedHabitats,
+  useSelectedPoke,
+} from 'utils'
 
 import { Pagination } from '../pagination'
 import { PokeCard, Skeleton } from '../poke-card'
@@ -17,9 +24,10 @@ export const List = () => {
   const { data, error, isLoading } = usePokemonsList({ pageIndex })
   const { data: filteredData, isLoading: filteredDataIsLoading } = useFilteredPokemons()
   const { abilities } = useSelectedAbilities()
+  const { habitats } = useSelectedHabitats()
   useEffect(() => {
     setPageIndex(0)
-  }, [abilities])
+  }, [abilities, habitats])
 
   if (filteredData) {
     return (

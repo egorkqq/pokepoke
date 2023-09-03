@@ -5,7 +5,7 @@ import { colors } from 'utils/theme'
 export const FiltersWrapper = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  padding: '1rem',
+  padding: '1.5rem 1rem',
   borderRadius: '2rem',
   gap: '1rem',
   width: '100%',
@@ -14,6 +14,19 @@ export const FiltersWrapper = styled.div({
   alignSelf: 'baseline',
   position: 'sticky',
   top: '1rem',
+})
+
+export const Title = styled.div({
+  fontWeight: 600,
+  fontSize: '1.25rem',
+  marginBottom: '0.5rem',
+})
+
+export const Separator = styled.div({
+  width: '100%',
+  height: '2px',
+  background: colors.secondary,
+  margin: '0.5rem 0',
 })
 
 export const FilterItemsGroup = styled.div({
@@ -51,4 +64,29 @@ export const FilterItem = styled.li({
   '&:hover': {
     border: `2px solid ${colors.primary}`,
   },
+})
+
+export const ClearFiltersButton = styled.button({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: '0.125rem',
+  color: colors.white,
+  borderRadius: '0.5rem',
+  background: colors.bg,
+  padding: '0.25rem 0.5rem',
+  cursor: 'pointer',
+  transition: 'all 0.2s ease-in-out',
+  textTransform: 'capitalize',
+  border: `2px solid transparent`,
+  '&:hover': {
+    border: `2px solid ${colors.secondary}`,
+  },
+})
+
+export const CategoryHeader = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: '0.25rem',
 })

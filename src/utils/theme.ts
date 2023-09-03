@@ -6,6 +6,7 @@ export const colors = {
   primary: '#4381F1',
   secondary: '#18181B',
   bg: 'rgba(24, 24, 27, 0.40)',
+  error: '#EC4549',
 }
 
 export const globalStyles = css`

@@ -1,20 +1,20 @@
 import { useAllHabitats, useSelectedHabitats } from 'utils'
 
-import { FilterItem, FilterItemsGroup, FiltersList } from './styled'
+import { CategoryHeader, ClearFiltersButton, FilterItem, FilterItemsGroup, FiltersList } from './styled'
 
 export const HabitatsList = () => {
   const { data: allHabitats, error, isLoading } = useAllHabitats()
   const { habitats, selectHabitat, removeHabitat, clear } = useSelectedHabitats()
 
   return (
-    <>
-      <div style={{ display: 'flex' }}>
+    <div>
+      <CategoryHeader>
         <div>Habitats:</div>
-        {!!habitats.length && <b>({habitats.length})</b>}
-        <button type="button" onClick={clear}>
+        <ClearFiltersButton type="button" onClick={clear}>
           Clear
-        </button>
-      </div>
+          {!!habitats.length && <b>({habitats.length})</b>}
+        </ClearFiltersButton>
+      </CategoryHeader>
 
       <FilterItemsGroup>
         {allHabitats?.results ? (
@@ -35,6 +35,6 @@ export const HabitatsList = () => {
           'Load abs...'
         )}
       </FilterItemsGroup>
-    </>
+    </div>
   )
 }

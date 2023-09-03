@@ -1,20 +1,20 @@
 import { useAllAbilities, useSelectedAbilities } from 'utils'
 
-import { FilterItem, FilterItemsGroup, FiltersList } from './styled'
+import { CategoryHeader, ClearFiltersButton, FilterItem, FilterItemsGroup, FiltersList } from './styled'
 
 export const AbilitiesList = () => {
   const { data: allAbilities, error, isLoading } = useAllAbilities()
   const { abilities, selectAbility, removeAbility, clear } = useSelectedAbilities()
 
   return (
-    <>
-      <div style={{ display: 'flex' }}>
+    <div>
+      <CategoryHeader>
         <div>Abilities:</div>
-        {!!abilities.length && <b>({abilities.length})</b>}
-        <button type="button" onClick={clear}>
+        <ClearFiltersButton type="button" onClick={clear}>
           Clear
-        </button>
-      </div>
+          {!!abilities.length && <b>({abilities.length})</b>}
+        </ClearFiltersButton>
+      </CategoryHeader>
 
       <FilterItemsGroup>
         {allAbilities?.results ? (
@@ -35,6 +35,6 @@ export const AbilitiesList = () => {
           'Load abs...'
         )}
       </FilterItemsGroup>
-    </>
+    </div>
   )
 }
