@@ -5,6 +5,7 @@ import { FiltersWrapper, Separator, Title } from './styled'
 export const Filters = () => (
   <FiltersWrapper>
     <Title>Filter</Title>
+
     <AbilitiesList />
 
     <Separator />

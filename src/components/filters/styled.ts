@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { colors } from 'utils/theme'
+import { colors, pulse } from 'utils/theme'
 
 export const FiltersWrapper = styled.div({
   display: 'flex',
@@ -32,7 +32,7 @@ export const Separator = styled.div({
 export const FilterItemsGroup = styled.div({
   display: 'flex',
   width: '100%',
-  maxHeight: '16rem',
+  height: '16rem',
   overflowY: 'scroll',
   '::scrollbar': {
     width: '0.5rem',
@@ -89,4 +89,23 @@ export const CategoryHeader = styled.div({
   alignItems: 'center',
   justifyContent: 'space-between',
   marginBottom: '0.25rem',
+})
+
+export const FilterItemSkeleton = styled.li({
+  animation: `${pulse} 1.5s infinite`,
+  padding: '1.125rem',
+  borderRadius: '0.5rem',
+  background: colors.bg,
+  border: `2px solid ${colors.secondary}`,
+  width: '100%',
+})
+
+export const ErrorWrapper = styled.div({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
+  width: '100%',
+  fontSize: '4.5rem',
+  transform: 'rotate(90deg)',
 })
