@@ -17,12 +17,13 @@ import { CardsWrapper, ErrorWrapper, Wrapper } from './styled'
 
 const cardsMock = Array.from({ length: 20 }, (_, i) => i)
 
+// TODO: move common logic to separte component
 export const List = () => {
   const [pageIndex, setPageIndex] = useState(0)
   const { setPoke } = useSelectedPoke()
 
   const { data, error, isLoading } = usePokemonsList({ pageIndex })
-  const { data: filteredData, isLoading: filteredDataIsLoading } = useFilteredPokemons()
+  const { data: filteredData, error: filteredDataError, isLoading: filteredDataIsLoading } = useFilteredPokemons()
   const { abilities } = useSelectedAbilities()
   const { habitats } = useSelectedHabitats()
   useEffect(() => {
@@ -30,6 +31,14 @@ export const List = () => {
   }, [abilities, habitats])
 
   if (filteredData) {
+    if (filteredDataError) {
+      return <ErrorWrapper>Error when load data :(</ErrorWrapper>
+    }
+
+    if (!filteredDataIsLoading && !filteredData.length) {
+      return <ErrorWrapper>Nothing was found (for the specified filters)</ErrorWrapper>
+    }
+
     return (
       <Wrapper>
         <CardsWrapper>
@@ -52,7 +61,7 @@ export const List = () => {
   }
 
   if (error || (!isLoading && !data)) {
-    return <ErrorWrapper>Error when load data :(((</ErrorWrapper>
+    return <ErrorWrapper>Error when load data :(</ErrorWrapper>
   }
 
   return (

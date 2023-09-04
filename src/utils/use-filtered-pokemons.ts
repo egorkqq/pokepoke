@@ -8,11 +8,12 @@ import { getHabitat } from 'api/habitats'
 import { useSelectedAbilities } from './use-selected-abilities'
 import { useSelectedHabitats } from './use-selected-habitats'
 
+// TODO: disable re-fetching, fix re-computing intersection each time
 export const useFilteredPokemons = () => {
   const { abilities } = useSelectedAbilities()
   const { habitats } = useSelectedHabitats()
 
-  const { data, isLoading } = useSWR(
+  const { data, isLoading, error } = useSWR(
     ['filterd-pokemons', ...abilities, ...habitats],
     async () => {
       if (!abilities.length && !habitats.length) return undefined
@@ -45,8 +46,8 @@ export const useFilteredPokemons = () => {
 
       return intersection
     },
-    { keepPreviousData: !!abilities.length },
+    { keepPreviousData: !!abilities.length || !!habitats.length },
   )
 
-  return { data, isLoading }
+  return { data, isLoading, error }
 }

@@ -60,7 +60,7 @@ export const Detail = () => {
         </StatsContainer>
         <StatsContainer>
           {data?.stats.map((stat) => (
-            <StatWrapper>
+            <StatWrapper key={stat.stat.name}>
               <StatValue>{stat.baseStat || 'N/A'}</StatValue>
               <StatName>{formatStatName(stat.stat.name)}</StatName>
             </StatWrapper>
