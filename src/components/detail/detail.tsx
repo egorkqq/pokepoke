@@ -24,7 +24,7 @@ export const Detail = () => {
     setImageError(false)
   }, [poke])
 
-  if (error) return <ErrorWrapper>Error when load data :(((</ErrorWrapper>
+  if (error) return <ErrorWrapper>Error when load data :(</ErrorWrapper>
 
   if (poke === null || !data) return null
 
@@ -69,7 +69,7 @@ export const Detail = () => {
       </div>
 
       {data?.abilities.map((ability) => (
-        <StatWrapper>
+        <StatWrapper key={ability.ability.name}>
           <StatValue>{ability.ability.name}</StatValue>
         </StatWrapper>
       ))}
